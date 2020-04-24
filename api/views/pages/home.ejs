@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+</head>
+<body>
+    You have logged in. Hi <%= firstname %>
+
+    <h4>Leaderboard</h4>
+    <ol id="leaderboard">
+        <% scores.forEach(function(score){ %>
+            <li><%= score.username %> : <%= score.score %></li>
+        <% }) %>
+    </ol>
+
+    <form action="/score/send" method="post">
+        <input type="number" name="score" id="score" required>
+        <input type="submit" value="Add Score">
+    </form>
+
+    <a href="/score/clear"> Clear </a>
+
+    <a href="/logout">Log me out</a>
+</body>
+</html>
